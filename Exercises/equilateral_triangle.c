@@ -1,4 +1,4 @@
-// write a program that forms a equilateral triangle using *
+// write a program that forms an equilateral triangle using *
 #include <stdio.h>
 
 int main() {
