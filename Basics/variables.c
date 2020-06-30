@@ -15,6 +15,7 @@ int main() {
     float floatCroppedNumber = 1.10;
 
     /*
+        %u = unsigned integer
         %d = integer
         %c = character
         %f = double or float
