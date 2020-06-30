@@ -5,8 +5,8 @@ int main() {
     /*
         expected output:
             *
+           * *
           * * *
-        * * * * *
     */
     unsigned int rows;
     
