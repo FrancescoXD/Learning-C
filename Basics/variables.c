@@ -18,7 +18,7 @@ int main() {
         %d = integer
         %c = character
         &f = double or float
-        &.{n}f = round off to 2 decimal place
+        &.{n}f = round off to 2nd decimal place
     */
     printf("%d %d %d %d %c %f %f %.2f", shortNumber, longNumber, integerNumber, unsignedIntegerNumber, character, doubleNumber, floatNumber, floatCroppedNumber);
 
