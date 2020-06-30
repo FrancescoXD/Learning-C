@@ -1,15 +1,14 @@
 // write a program that forms a right triangle using *
-
 #include <stdio.h>
 
 int main() {
-    int n, i, j;
+    int rows, i, j;
 
-    n = 5;
+    rows = 5;
 
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= rows; i++) {
         for (j = 1; j <= i; j++)
-            printf("* ");
+            printf("%s", "*");
 
         printf("\n");
     }
