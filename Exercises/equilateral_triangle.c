@@ -8,18 +8,18 @@ int main() {
           * * *
         * * * * *
     */
-    unsigned int rows, i, j;
+    unsigned int rows;
     
     printf("%s", "Insert height: ");
     scanf("%d", &rows);
 
-    for (i = 1; i <= rows; i++) {
-        for (j = 1; j <= rows-i; j++)
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= rows-i; j++)
             printf(" ");
 
-        for (j = 1; j <= i; j++)
-            printf("* ");
-
+        for (int k = 1; k <= i; k++)
+            printf("%s ", "*");
+        
         printf("\n");
     }
 
