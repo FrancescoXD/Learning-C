@@ -3,8 +3,9 @@
 
 enum Status { WON, LOSE, CONTINUE };
 
-int showGameDisplay();
-int insertSymbol(int position);
+void showGameDisplay(void);
+void insertSymbol(char position);
+enum Status checkPosition(char position);
 
 int main() {
     enum Status gameStatus;
@@ -23,4 +24,12 @@ int main() {
 
     showGameDisplay();
     printf("%s", "Player 1 start! Insert position: ");
+}
+
+void showGameDisplay() {
+    
+}
+
+enum Status checkPosition(char position) {
+    
 }
