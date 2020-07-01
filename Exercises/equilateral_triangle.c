@@ -1,6 +1,8 @@
 // write a program that forms an equilateral triangle using *
 #include <stdio.h>
 
+void printTriangle(int rows);
+
 int main() {
     /*
         expected output:
@@ -13,6 +15,12 @@ int main() {
     printf("%s", "Insert height: ");
     scanf("%d", &rows);
 
+    printTriangle(rows);
+
+    return 0;
+}
+
+void printTriangle(int rows) {
     for (int i = 1; i <= rows; i++) {
         for (int j = 1; j <= rows-i; j++)
             printf(" ");
@@ -22,6 +30,4 @@ int main() {
         
         printf("\n");
     }
-
-    return 0;
 }

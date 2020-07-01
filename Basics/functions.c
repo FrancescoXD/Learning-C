@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// function prototype
 int sum(int x, int y);
 
 int main() {
