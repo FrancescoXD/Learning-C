@@ -70,39 +70,45 @@ char askPlayerPosition(enum Status currentPlayer) {
 }
 
 void insertSymbol(char position, enum Status currentPlayer) {
-    if (currentPlayer == P1) {
-        switch (position) {
-            case 'a':
-                a = 'X';
-                break;
-            case 'b':
-                b = 'X';
-                break;
-            case 'c':
-                c = 'X';
-                break;
-            case 'd':
-                d = 'X';
-                break;
-            case 'e':
-                e = 'X';
-                break;
-            case 'f':
-                f = 'X';
-                break;
-            case 'g':
-                g = 'X';
-                break;
-            case 'h':
-                h = 'X';
-                break;
-            case 'i':
-                i = 'X';
-                break;
-            default:
-                printf("%s", "Wrong position!\n");
-                break;
-        }
+    char symbol;
+
+    if (currentPlayer == P1 ) {
+        symbol = 'X';
+    } else {
+        symbol = 'O';
+    }
+
+    switch (position) {
+        case 'a':
+            a = symbol;
+            break;
+        case 'b':
+            b = symbol;
+            break;
+        case 'c':
+            c = symbol;
+            break;
+        case 'd':
+            d = symbol;
+            break;
+        case 'e':
+            e = symbol;
+            break;
+        case 'f':
+            f = symbol;
+            break;
+        case 'g':
+            g = symbol;
+            break;
+        case 'h':
+            h = symbol;
+            break;
+        case 'i':
+            i = symbol;
+            break;
+        default:
+            printf("%s", "Wrong position!\n");
+            break;
     }
 
     showGameDisplay(a,  b,  c,  d,  e,  f,  g,  h,  i);
