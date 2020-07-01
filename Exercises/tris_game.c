@@ -8,6 +8,8 @@ void insertSymbol(char position, enum Status currentPlayer);
 enum Status checkPosition(char position);
 char askPlayerPosition(enum Status currentPlayer);
 
+enum Status currentPlayer = P1;
+
 char a = ' ';
 char b = ' ';
 char c = ' ';
@@ -20,7 +22,6 @@ char i = ' ';
 
 int main() {
     enum Status gameStatus;
-    enum Status currentPlayer;
     enum Status player1;
     enum Status player2;
 
@@ -28,14 +29,14 @@ int main() {
     // X = 1, O = 0
 
     showGameDisplay(a, b, c, d, e, f, g, h, i);
-    printf("%s", "Player 1 Symbol = X\nPlayer 2 Symbol = O\n");
-    currentPlayer = P1;
+    printf("%s", "Player 1 Symbol = X\nPlayer 2 Symbol = O\n\n");
     askPlayerPosition(currentPlayer);
     gameStatus = CONTINUE;
 
-    while (gameStatus == CONTINUE) {
+    do {
         askPlayerPosition(currentPlayer);
-    }
+    } while (gameStatus == CONTINUE);
+    
     
 }
 
@@ -54,12 +55,14 @@ char askPlayerPosition(enum Status currentPlayer) {
 
     if (currentPlayer == P1) {
         printf("%s", "Player 1: ");
-        scanf("%c", &position);
+        position = getchar();
+        //scanf("%c", &position);
         insertSymbol(position, currentPlayer);
         currentPlayer = P2;
     } else {
         printf("%s", "Player 2: ");
-        scanf("%c", &position);
+        position = getchar();
+        //scanf("%c", &position);
         insertSymbol(position, currentPlayer);
         currentPlayer = P1;
     }
@@ -103,6 +106,10 @@ void insertSymbol(char position, enum Status currentPlayer) {
             break;
         case 'i':
             i = symbol;
+            break;
+        case ' ':
+        case '\n':
+        case '\t':
             break;
         default:
             printf("%s", "Wrong position!\n");
