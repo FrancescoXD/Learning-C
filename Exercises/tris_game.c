@@ -4,9 +4,19 @@
 enum Status { WON, LOSE, CONTINUE, P1, P2 };
 
 void showGameDisplay(char a, char b, char c, char d, char e, char f, char g, char h, char i);
-void insertSymbol(char position);
+void insertSymbol(char position, enum Status currentPlayer);
 enum Status checkPosition(char position);
 char askPlayerPosition(enum Status currentPlayer);
+
+char a = ' ';
+char b = ' ';
+char c = ' ';
+char d = ' ';
+char e = ' ';
+char f = ' ';
+char g = ' ';
+char h = ' ';
+char i = ' ';
 
 int main() {
     enum Status gameStatus;
@@ -20,15 +30,6 @@ int main() {
     g  h  i
     */
     //char a, b, c, d, e, f, g, h, i;
-    char a = 'X';
-    char b = 'X';
-    char c = 'O';
-    char d = 'X';
-    char e = 'X';
-    char f = 'X';
-    char g = 'X';
-    char h = 'O';
-    char i = 'O';
 
     int player1P; //player 1 position (X)
     int player2P; //player 2 position (O)
@@ -38,6 +39,12 @@ int main() {
     printf("%s", "Player 1 Symbol = X\nPlayer 2 Symbol = O\n");
     currentPlayer = P1;
     askPlayerPosition(currentPlayer);
+    gameStatus = CONTINUE;
+
+    while (gameStatus == CONTINUE) {
+        askPlayerPosition(currentPlayer);
+    }
+    
 }
 
 void showGameDisplay(char a, char b, char c, char d, char e, char f, char g, char h, char i) {
@@ -45,19 +52,60 @@ void showGameDisplay(char a, char b, char c, char d, char e, char f, char g, cha
 }
 
 char askPlayerPosition(enum Status currentPlayer) {
-    char position = 'a';
+    char position;
 
     if (currentPlayer == P1) {
         printf("%s", "Player 1: ");
         scanf("%c", &position);
+        insertSymbol(position, currentPlayer);
         currentPlayer = P2;
     } else {
         printf("%s", "Player 2: ");
         scanf("%c", &position);
+        insertSymbol(position, currentPlayer);
         currentPlayer = P1;
     }
 
     return position;
+}
+
+void insertSymbol(char position, enum Status currentPlayer) {
+    if (currentPlayer == P1) {
+        switch (position) {
+            case 'a':
+                a = 'X';
+                break;
+            case 'b':
+                b = 'X';
+                break;
+            case 'c':
+                c = 'X';
+                break;
+            case 'd':
+                d = 'X';
+                break;
+            case 'e':
+                e = 'X';
+                break;
+            case 'f':
+                f = 'X';
+                break;
+            case 'g':
+                g = 'X';
+                break;
+            case 'h':
+                h = 'X';
+                break;
+            case 'i':
+                i = 'X';
+                break;
+            default:
+                printf("%s", "Wrong position!\n");
+                break;
+        }
+    }
+
+    showGameDisplay(a,  b,  c,  d,  e,  f,  g,  h,  i);
 }
 
 enum Status checkPosition(char position) {
