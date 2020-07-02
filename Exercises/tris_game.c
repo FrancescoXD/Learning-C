@@ -1,14 +1,15 @@
 // write a tris game
 #include <stdio.h>
 
-enum Status { TIE, WON, LOSE, P1, P2 };
+enum Status { TIE, WON, LOSE };
+enum PlayerTurn { P1, P2 };
 
 void showGameDisplay();
-void insertSymbol(char position);
+void insertSymbol();
 void checkPosition();
 char askPlayerPosition();
 
-enum Status currentPlayer = P1;
+enum PlayerTurn currentPlayer = P1;
 
 char a = '.';
 char b = '.';
@@ -58,20 +59,20 @@ char askPlayerPosition() {
         printf("%s", "Player 1: ");
         position = getchar();
         //scanf("%c", &position);
-        insertSymbol(position);
+        insertSymbol();
         currentPlayer = P2;
     } else {
         printf("%s", "Player 2: ");
         position = getchar();
         //scanf("%c", &position);
-        insertSymbol(position);
+        insertSymbol();
         currentPlayer = P1;
     }
 
     return position;
 }
 
-void insertSymbol(char position) {
+void insertSymbol() {
     if (currentPlayer == P1 ) {
         symbol = 'X';
     } else {
@@ -80,7 +81,7 @@ void insertSymbol(char position) {
 
     switch (position) {
         case 'a':
-            checkPosition();
+            a = symbol;
             break;
         case 'b':
             b = symbol;
@@ -119,10 +120,5 @@ void insertSymbol(char position) {
 }
 
 void checkPosition() {
-    if (position == '.') {
-        position = symbol;
-    } else {
-        //puts("already busy");
-        position = symbol;
-    }
+    // nothing
 }
