@@ -1,41 +1,44 @@
 // write a tris game
 #include <stdio.h>
 
-enum Status { WON, LOSE, P1, P2 };
+enum Status { TIE, WON, LOSE, P1, P2 };
 
-void showGameDisplay(char a, char b, char c, char d, char e, char f, char g, char h, char i);
+void showGameDisplay();
 void insertSymbol(char position);
-enum Status checkPosition(char position);
+void checkPosition();
 char askPlayerPosition();
 
 enum Status currentPlayer = P1;
 
-char a = ' ';
-char b = ' ';
-char c = ' ';
-char d = ' ';
-char e = ' ';
-char f = ' ';
-char g = ' ';
-char h = ' ';
-char i = ' ';
+char a = '.';
+char b = '.';
+char c = '.';
+char d = '.';
+char e = '.';
+char f = '.';
+char g = '.';
+char h = '.';
+char i = '.';
+
+char position;
+char symbol;
 
 int main() {
     enum Status player1;
     enum Status player2;
 
-    //char a, b, c, d, e, f, g, h, i;
     // X = 1, O = 0
 
-    showGameDisplay(a, b, c, d, e, f, g, h, i);
+    printf("%10s", "Tic Tac Toe Game\n");
+    showGameDisplay();
     printf("%s", "Player 1 Symbol = X\nPlayer 2 Symbol = O\n\n");
-    askPlayerPosition();
+    position = askPlayerPosition();
 
     do {
         while (getchar() != '\n');
         
-        askPlayerPosition();
-    } while (player1 == WON);
+        position = askPlayerPosition();
+    } while (1);
     
     
 }
@@ -46,13 +49,11 @@ int main() {
     g  h  i
     */
 
-void showGameDisplay(char a, char b, char c, char d, char e, char f, char g, char h, char i) {
+void showGameDisplay() {
     printf("a%4c b%4c c%4c\nd%4c e%4c f%4c\ng%4c h%4c i%4c\n", a, b, c, d, e, f, g, h, i);
 }
 
 char askPlayerPosition() {
-    char position;
-
     if (currentPlayer == P1) {
         printf("%s", "Player 1: ");
         position = getchar();
@@ -71,8 +72,6 @@ char askPlayerPosition() {
 }
 
 void insertSymbol(char position) {
-    char symbol;
-
     if (currentPlayer == P1 ) {
         symbol = 'X';
     } else {
@@ -81,7 +80,7 @@ void insertSymbol(char position) {
 
     switch (position) {
         case 'a':
-            a = symbol;
+            checkPosition();
             break;
         case 'b':
             b = symbol;
@@ -116,9 +115,14 @@ void insertSymbol(char position) {
             break;
     }
 
-    showGameDisplay(a,  b,  c,  d,  e,  f,  g,  h,  i);
+    showGameDisplay();
 }
 
-enum Status checkPosition(char position) {
-    return WON;
+void checkPosition() {
+    if (position == '.') {
+        position = symbol;
+    } else {
+        //puts("already busy");
+        position = symbol;
+    }
 }
