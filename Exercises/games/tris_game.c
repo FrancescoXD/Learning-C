@@ -1,4 +1,5 @@
 // write a tris game
+// DOESN'T WORK!
 #include <stdio.h>
 
 enum Status { TIE, WON, LOSE };
