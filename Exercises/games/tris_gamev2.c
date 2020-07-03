@@ -2,13 +2,14 @@
 #define TABLE_SIZE 9
 
 enum Player { P1, P2 };
-enum PlayerStatus { WIN, LOSE, TIE };
+enum Status { CONTINUE, FINISHED };
 int currentPlayer = 1;
+enum Status gameStatus = CONTINUE;
 
 void showGameTable();
 void askPlayerPosition();
 void insertSymbol();
-enum PlayerStatus checkIfWon();
+void checkIfWon();
 
 char table[] = {' ', ' ', ' ',
                 ' ', ' ', ' ',
@@ -24,7 +25,7 @@ int main() {
         while (getchar() != '\n');
         showGameTable();
         askPlayerPosition();
-    } while (1);
+    } while (gameStatus == CONTINUE);
     
 }
 
@@ -34,11 +35,13 @@ void askPlayerPosition() {
         printf("%s", "Player 1: ");
         position = getchar();
         insertSymbol();
+        checkIfWon();
     } else {
         symbol = 'O';
         printf("%s", "Player 2: ");
         position = getchar();
         insertSymbol();
+        checkIfWon();
     }
 }
 
@@ -63,6 +66,23 @@ void showGameTable() {
         if (cont == 3) {
             puts("");
             cont = 0;
+        }
+    }
+}
+
+/*
+a b c - 0 1 2
+d e f - 3 4 5
+g h i - 6 7 8
+*/
+
+void checkIfWon() {
+    if (table[0] == 'X') {
+        if (table[1] == 'X') {
+            if (table[2] == 'X') {
+                printf("Player 1 wins!");
+                gameStatus = FINISHED;
+            }
         }
     }
 }
