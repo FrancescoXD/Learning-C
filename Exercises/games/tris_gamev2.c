@@ -9,7 +9,7 @@ enum Status gameStatus = CONTINUE;
 void showGameTable();
 void askPlayerPosition();
 void insertSymbol();
-void checkIfWon();
+void checkGameStatus();
 
 char table[] = {' ', ' ', ' ',
                 ' ', ' ', ' ',
@@ -35,13 +35,13 @@ void askPlayerPosition() {
         printf("%s", "Player 1: ");
         position = getchar();
         insertSymbol();
-        checkIfWon();
+        checkGameStatus();
     } else {
         symbol = 'O';
         printf("%s", "Player 2: ");
         position = getchar();
         insertSymbol();
-        checkIfWon();
+        checkGameStatus();
     }
 }
 
@@ -76,7 +76,7 @@ d e f - 3 4 5
 g h i - 6 7 8
 */
 
-void checkIfWon() {
+void checkGameStatus() {
     if (table[0] == 'X') {
         if (table[1] == 'X') {
             if (table[2] == 'X') {
