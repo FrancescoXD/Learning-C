@@ -15,6 +15,7 @@ char table[] = {' ', ' ', ' ',
                 ' ', ' ', ' '};
 char position;
 char symbol;
+int emptySlot = 8;
 
 int main() {
     printf("%s", "TIC TAC TOE GAME\n\n");
@@ -28,6 +29,7 @@ int main() {
         askPlayerPosition();
     } while (gameStatus == CONTINUE);
     
+    showGameTable();
 }
 
 void askPlayerPosition() {
@@ -50,6 +52,7 @@ void askPlayerPosition() {
     }
 
     checkGameStatus();
+    emptySlot--;
 }
 
 void showGameTable() {
@@ -67,60 +70,57 @@ void showGameTable() {
     }
 }
 
-/*
-a b c - 0 1 2
-d e f - 3 4 5
-g h i - 6 7 8
-*/
-
 void checkGameStatus() {
     if (table[0] == 'X' && table[1] == 'X' && table[2] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[3] == 'X' && table[4] == 'X' && table[5] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[6] == 'X' && table[7] == 'X' && table[8] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[0] == 'X' && table[3] == 'X' && table[6] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[1] == 'X' && table[4] == 'X' && table[7] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[2] == 'X' && table[5] == 'X' && table[8] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[0] == 'X' && table[4] == 'X' && table[8] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[2] == 'X' && table[4] == 'X' && table[6] == 'X') {
-        printf("Player 1 wins!");
+        puts("Player 1 wins!");
         gameStatus = FINISHED;
     } else if (table[0] == 'O' && table[1] == 'O' && table[2] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[3] == 'O' && table[4] == 'O' && table[5] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[6] == 'O' && table[7] == 'O' && table[8] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[0] == 'O' && table[3] == 'O' && table[6] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[1] == 'O' && table[4] == 'O' && table[7] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[2] == 'O' && table[5] == 'O' && table[8] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[0] == 'O' && table[4] == 'O' && table[8] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
         gameStatus = FINISHED;
     } else if (table[2] == 'O' && table[4] == 'O' && table[6] == 'O') {
-        printf("Player 2 wins!");
+        puts("Player 2 wins!");
+        gameStatus = FINISHED;
+    } else if (emptySlot == 0) {
+        puts("And the winner is... nobody!");
         gameStatus = FINISHED;
     }
 }
