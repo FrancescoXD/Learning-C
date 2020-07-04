@@ -15,7 +15,7 @@
 10
 */
 
-int 
+char battlefield[10][10] = {' '};
 
 int main() {
 
