@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+// 10 x 10 = 100 slots
+/*
+ A B C D E F G H I J
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+*/
+
+int 
+
+int main() {
+
+}
