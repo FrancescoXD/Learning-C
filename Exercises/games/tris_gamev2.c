@@ -1,7 +1,6 @@
 #include <stdio.h>
 #define TABLE_SIZE 9
 
-enum Player { P1, P2 };
 enum Status { CONTINUE, FINISHED };
 int currentPlayer = 1;
 enum Status gameStatus = CONTINUE;
