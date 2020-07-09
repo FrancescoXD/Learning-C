@@ -67,14 +67,20 @@ void showGameTable() {
 }
 
 void askPlayerPosition() {
-    int counter = 1;
     for (size_t i = 0; i < TOTAL_SHIPS; ++i) {
-        printf("\nEs: a 1\nInsert ship position (length %d): ", counter);
-        counter++;
+        printf("\nEs: a 1\nInsert ship position (length %d): ", shipLength[i]);
         scanf("%c %d", &column, &line);
         while (getchar() != '\n');
         column -= 'a';
-        battlefield[line][column] = '@';
+        insertShip();
         showGameTable();
+    }
+}
+
+void insertShip() {
+    if (battlefield[line][column] == ' ') {
+        battlefield[line][column] = '@';
+    } else {
+        puts("Slot not empty!");
     }
 }
