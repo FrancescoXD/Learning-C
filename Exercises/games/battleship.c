@@ -54,29 +54,27 @@ int main() {
 }
 
 void showGameTable() {
-    int line = 0;
-    int column = 0;
-    printf("%4s %s %s %s %s %s %s %s %s %s\n", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
+    int firstInteger = 1;
+    printf("%4s %s %s %s %s %s %s %s %s %s", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
     for (size_t i = 0; i < 10; ++i) {
-        int firstInteger = 1;
-        int counter = 1;
-        printf("%2d %4c %c %c %c %c %c %c %c %c %c", firstInteger, battlefield[line][column]);
+        printf("\n%2d", firstInteger);
+        for (size_t j = 0; j < BATTLEFIELD_SIZE; ++j) {
+            printf("%c", battlefield[j][i]);
+        }
+        
         firstInteger++;
-        line++;
-        column++;
     }
-    
 }
 
 void askPlayerPosition() {
+    int counter = 1;
     for (size_t i = 0; i < TOTAL_SHIPS; ++i) {
-        int counter = 1;
         printf("\nEs: a 1\nInsert ship position (length %d): ", counter);
         counter++;
-        scanf("%d %c", &line, &column);
+        scanf("%c %d", &column, &line);
         while (getchar() != '\n');
-        battlefield[line][column] = 'X';
+        column -= 'a';
+        battlefield[line][column] = '@';
+        showGameTable();
     }
-
-    showGameTable();
 }
