@@ -59,7 +59,7 @@ void showGameTable() {
     for (size_t i = 0; i < 10; ++i) {
         printf("\n%2d", firstInteger);
         for (size_t j = 0; j < BATTLEFIELD_SIZE; ++j) {
-            printf("%c", battlefield[j][i]);
+            printf("%c ", battlefield[j][i]);
         }
         
         firstInteger++;
@@ -78,8 +78,8 @@ void askPlayerPosition() {
 }
 
 void insertShip() {
-    if (battlefield[line][column] == ' ') {
-        battlefield[line][column] = '@';
+    if (battlefield[line-1][column] == ' ') {
+        battlefield[line-1][column] = '@';
     } else {
         puts("Slot not empty!");
     }
