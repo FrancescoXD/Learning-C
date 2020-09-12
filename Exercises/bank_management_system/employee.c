@@ -10,14 +10,11 @@ struct Employee {
 
 struct Employee employee_list[MAX_SIZE];
 
-void add_employee() {
-    char *name;
+void add_employee() { // needs fix
     printf("%s", "Insert name: ");
-    scanf("%s", name);
-    employee_list[employee_id].name = name;
-    printf("%d", employee_id);
-    employee_list[employee_id].employee_id = employee_id++;
-    printf("[%d] %s", employee_list[employee_id], employee_list[employee_id].name);
+    //scanf("%s", name);
+    employee_list[0].name = "Gio";
+    employee_list[0].employee_id = 0;
 }
 
 void remove_employee() {
