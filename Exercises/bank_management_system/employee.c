@@ -11,7 +11,7 @@ struct Employee {
 struct Employee employee_list[MAX_SIZE];
 
 void add_employee() { // needs fix
-    printf("%s", "Insert name: ");
+    //printf("%s", "Insert name: ");
     //scanf("%s", name);
     employee_list[0].name = "Gio";
     employee_list[0].employee_id = 0;
