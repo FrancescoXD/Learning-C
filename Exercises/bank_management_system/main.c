@@ -18,6 +18,8 @@ int main() {
         case 1:
             add_employee();
             break;
+        case 2:
+            remove_employee();
         case '\t':
         case ' ':
         case '\n':

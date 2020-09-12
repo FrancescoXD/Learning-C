@@ -1,2 +1,2 @@
 void add_employee();
-int remove_employee();
+void remove_employee();
