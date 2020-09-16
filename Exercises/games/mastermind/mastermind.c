@@ -19,9 +19,9 @@ int main() {
     if (gameMode == 2) {
         for (size_t i = 0; i < CODE_LENGTH; ++i) {
             srand(time(NULL));
-            int randomizer = rand() % 10;
-            int random = rand() % randomizer;
+            int random = rand() % 10;
             secretCode[i] = random;
+            printf("%d %d", random, secretCode[i]);
         }
     } else {
         for (size_t i = 0; i < CODE_LENGTH; ++i) {
