@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 #define CODE_LENGTH 4
 
 void startGame(int secretCode[CODE_LENGTH]);
@@ -6,16 +9,27 @@ int checkCode(int secretCode[], int code[]);
 
 int main() {
     int secretCode[CODE_LENGTH];
-    int input;
+    int input, gameMode;
 
     printf("%s", "Mastermind game!\n\n");
-    puts("Insert the secret code.\n");
-
-    for (size_t i = 0; i < CODE_LENGTH; ++i) {
-        printf("%s%d: ", "Code in position number ", i);
-        scanf("%d", &input);
-        secretCode[i] = input;
-        while(getchar() != '\n');
+    puts("Insert the secret code.");
+    puts("Select the game mode:\n1. 2 players\n2. Random code");
+    scanf("%d", &gameMode);
+    while(getchar() != '\n');
+    if (gameMode == 2) {
+        for (size_t i = 0; i < CODE_LENGTH; ++i) {
+            srand(time(NULL));
+            int randomizer = rand() % 10;
+            int random = rand() % randomizer;
+            secretCode[i] = random;
+        }
+    } else {
+        for (size_t i = 0; i < CODE_LENGTH; ++i) {
+            printf("%s%d: ", "Code in position number ", i);
+            scanf("%d", &input);
+            secretCode[i] = input;
+            while(getchar() != '\n');
+        }
     }
 
     startGame(secretCode);
@@ -49,7 +63,7 @@ int checkCode(int secretCode[], int code[]) {
         if (code[i] == secretCode[i]) rightNumbersPosition++;
     }
 
-    printf("%s%d\n%s%d\n", "Right numbers: ", rightNumbers, "Right numbers position: ", rightNumbersPosition);
+    printf("%s%d\n%s%d\n", "Right numbers: ", rightNumbers, "Right numbers in position: ", rightNumbersPosition);
     if (rightNumbersPosition == 4) {
         return 1;
     }
